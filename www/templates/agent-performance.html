@@ -1,0 +1,53 @@
+<ion-view view-title="{{extention.name}} Performance">
+    <ion-content style="align-content: center">
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefreshAgentCall()">
+        </ion-refresher>
+
+        <div class="list card"   >
+
+            <div class="item item-divider"> {{extention.name}} Call Count</div>
+            <div class="item item-body">
+
+                <div>
+                    <table style="width: 100%; border:3px solid #576966 ;align-content: center;  background-color:#F4F8FF ;">
+                        <tr style="border-bottom:3px solid #CEDAEF ;background-color: #ddedf5">
+                            <th style="border-right:3px solid #576966">Day</th>
+                            <th style="border-right:3px solid #576966">Count</th>
+
+                        </tr>
+
+                        <tr>
+                            <td style="border-right:3px solid #576966 ;text-align: center">Today Count:</td>
+                            <td style="border-right:3px solid #576966 ;text-align: center"><b>{{agent_today_count}}</b></td>
+                        </tr>
+                        <tr>
+                            <td style="border-right:3px solid #576966 ;text-align: center">Yesterday Count: </td>
+                            <td style="border-right:3px solid #576966 ;text-align: center"><b>{{agent_yetr_count}}</b></td>
+                        </tr>
+                        <tr>
+                            <td style="border-right:3px solid #576966 ;text-align: center">Day Before Yesterday Count: </td>
+                            <td style="border-right:3px solid #576966 ;text-align: center"><b>{{agent_byetr_count}}</b></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+
+            <div class="item item-divider">Call Count Chart</div>
+            <div class="item item-body">
+
+                <canvas id="bars" class="chart chart-bar" data="dataa"
+                        labels="labell"></canvas>
+            </div>
+
+
+
+
+
+        </div>
+
+
+    </ion-content>
+</ion-view>

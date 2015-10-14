@@ -1,0 +1,30 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="">
+    <ion-content class="padding">
+
+        <div>
+            <label class="item item-input">
+                <span class="input-label">StartDate</span>
+                <input type="date" ng-model="start_date"  >
+            </label>
+        </div>
+        <br>
+        <div>
+            <label class="item item-input">
+                <span class="input-label">EndDate</span>
+                <input type="date" ng-model="end_date"  >
+            </label>
+        </div>
+        </br>
+        <div  style="text-align: center">
+            <button style="text-align: center" class="button button-calm" ng-click="get_prod_by_date()" >
+                Get Date Wise Report
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

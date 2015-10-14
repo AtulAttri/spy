@@ -1,0 +1,42 @@
+<ion-view view-title="Missed Call Details">
+    <ion-content class="padding">
+
+            <div class="list card"   >
+
+                <div class="item item-divider">Missed Call Count</div>
+                <div class="item item-body">
+                    <div>
+
+                        <h2><b>Total Count : {{missed_call_count}}</b> </h2></br>
+
+
+                    </div>
+                </div>
+            </div>
+        <div class="item item-divider">Missed Call Details</div>
+        <ion-list>
+        <!--<div  >-->
+            <!--<div class="list card"   >-->
+
+                <!--<div class="item item-divider">Missed Call Details</div>-->
+                <!--<div class="item item-body" collection-repeat="call in missed_call_lists" ng-controller="MissedCallDetailCtrl">-->
+                    <!--<div>-->
+
+                        <!--<h2> Call From : {{call.Destination}}</h2></br>-->
+                        <!--<h2>Call Time : {{call.Calling_time |  date:'medium'}}</h2></br>-->
+                        <!--<p>--------------------------------------------------------</p>-->
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+            <ion-item collection-repeat="call in missed_call_lists" ng-controller="MissedCallDetailCtrl">
+                <h2> Call From : {{call.Destination}}</h2></br>
+                <h2>Call Time : {{call.Calling_time |  date:'medium'}}</h2></br>
+
+            </ion-item>
+
+            </ion-list>
+
+    </ion-content>
+</ion-view>

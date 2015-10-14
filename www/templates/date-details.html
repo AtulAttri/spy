@@ -1,0 +1,59 @@
+<ion-view view-title=" Relaxo Dashboard">
+    <ion-content class="padding" ng-controller="DashCtrl">
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+        <div>
+            <label class="item item-input">
+                <span class="input-label">StartDate</span>
+                <input type="date" ng-model="start_date"  >
+            </label>
+        </div>
+        <br>
+        <div>
+            <label class="item item-input">
+                <span class="input-label">EndDate</span>
+                <input type="date" ng-model="end_date"  >
+            </label>
+        </div>
+        </br>
+        <div  style="text-align: center">
+            <button style="text-align: center" class="button button-calm" ng-click="get_prod_by_date()" >
+                Get Date Wise Report
+            </button>
+        </div>
+
+        <div class="list card">
+            <div class="item item-divider">Total Productive Calls Details {{titleDate}}</div>
+            <div class="item item-body">
+                <div>
+                    <h2><b>Total Count: {{total_productive_calls}}</b> </h2>
+                    <table style="width: 100%; border:3px solid #576966 ;align-content: center">
+                        <tr style="border-bottom:3px solid #CEDAEF ;background-color: #F4F8FF">
+                            <th style="border-right:3px solid #576966">1- 30 sec </th>
+                            <th style="border-right:3px solid #576966">31-60 sec</th>
+                            <th style="border-right:3px solid #576966">61-120 sec</th>
+                            <th >Above 2 min</th>
+                        </tr>
+                        <tr>
+                            <td style="border-right:3px solid #576966 ;text-align: center;"><b>{{lss_sec30}}</b></td>
+                            <td style="border-right:3px solid #576966 ;text-align: center"><b>{{sc30_60}}</b></td>
+                            <td style="border-right:3px solid #576966 ;text-align: center"><b>{{mn1_min2}}</b></td>
+                            <td  style="text-align: center"><b>{{abv_min2}}</b></td>
+                        </tr>
+                    </table> <br>
+
+                </div>
+            </div>
+        </div>
+        <div class="list card">
+            <div class="item item-divider">Total Productive Time {{titleDate}}</div>
+            <div class="item item-body">
+                <div>
+                    <h2><b>{{ total_productive_time_hr}} hrs : {{ total_productive_time_min}} min</b>  </h2>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,67 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{extention.name}}">
+  <ion-content class="padding">
+      <div class="list card"   >
+          <div class="item item-divider"> {{extention.name}} Call Summary {{HeadDate}}</div>
+          <div class="item item-body">
+              <div>
+
+                  <div> Total Productive Call Count -> <b>{{total_productive_calls}}</b></div><br>
+                  <!--<div >Less Than 30 sec Call Count -> {{less_sec30}}</div>-->
+                  <!--<div > 31 sec - 60 sec Call Count -> {{sec30_60}}</div>-->
+                  <!--<div >61 sec - 2 min -> {{min1_min2}}</div>-->
+                <!--<div >Greater Than 2 min Call Count -> {{above_min2}}</div>-->
+                  <table style="width: 100%; border:3px solid #576966 ;align-content: center">
+                      <tr style="border-bottom:3px solid #CEDAEF ;background-color: #F4F8FF">
+                          <th style="border-right:3px solid #576966">1- 30 sec </th>
+                          <th style="border-right:3px solid #576966">31-60 sec</th>
+                          <th style="border-right:3px solid #576966">61-120 sec</th>
+                          <th >Above 2 min</th>
+                      </tr>
+                      <tr>
+                          <td style="border-right:3px solid #576966 ;text-align: center;"> <b>{{less_sec30}}</b></td>
+                          <td style="border-right:3px solid #576966 ;text-align: center"><b>{{sec30_60}}</b></td>
+                          <td style="border-right:3px solid #576966 ;text-align: center"><b>{{min1_min2}}</b></td>
+                          <td  style="text-align: center"><b>{{above_min2}}</b></td>
+                      </tr>
+                  </table> <br>
+                <div>Total Productive Call Time: <b>{{total_productive_time_hr}}</b> hrs : <b>{{total_productive_time_min}} min</b></div>
+
+              </div>
+          </div>
+          <div class="item item-divider">Call Count Chart</div>
+          <div class="item item-body">
+
+          <canvas id="bar" class="chart chart-bar" data="callcount"
+          labels="labels" colours="chartParams.colours"></canvas>
+      </div>
+          <div class="item item-divider">Call Time Chart</div>
+          <div class="item item-body">
+
+              <canvas id="bars" class="chart chart-bar" data="calltime"
+                      labels="label" colours="chartParams.colours"></canvas>
+          </div>
+          </div>
+
+   <!--<div collection-repeat="call in call_lists" >-->
+      <!--<div class="list card"   >-->
+
+      <div class="item item-divider">Call Detail List</div>
+
+      <ion-list>
+
+          <ion-item collection-repeat="call in call_lists">
+              <h2> Call Time : {{call.Calling_time | date:'medium'}}</h2></br>
+              <h2>Dialled Number : {{call.Destination}}</h2></br>
+              <h2>Call Duration : {{call.call_dur_in_min}}</h2></br>
+              <h2>Call Status :  {{call.Disposition}}</h2></br>
+          </ion-item>
+
+      </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,280 @@
+<ion-view view-title="   Dashboard">
+  <ion-content class="padding" ng-controller="DashCtrl">
+      <ion-refresher
+              pulling-text="Pull to refresh..."
+              on-refresh="doRefresh()">
+      </ion-refresher>
+
+
+    <!--<div class="list card"  collection-repeat="call in prod_calls_data | filter:filter" >-->
+      <!--<div class="item item-divider">Recent Updates</div>-->
+      <!--<div class="item item-body">-->
+        <!--<div>-->
+            <!--<h2>{{call.name}}</h2> <b>sector 3</b>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <div class="list card">
+      <div class="item item-divider">Productive Calls Details {{titleDate}}</div>
+      <div class="item item-body">
+      
+        <div>
+            <!--<h2><b>Total Call Count: {{total_productive_calls}}</b> </h2>-->
+            <!--<h2><b>Relaxo Call Count: {{total_relaxo_count}}</b> </h2>-->
+            <!--<h2><b>SEEP & Blaupunkt Call Count: {{seee_blau}}</b> </h2>-->
+            <table style="width: 100%; border:3px solid #576966 ;align-content: center;  background-color:#F4F8FF ;">
+                <tr style="border-bottom:3px solid #CEDAEF ;background-color: #ddedf5">
+                    <th style="border-right:3px solid #576966">Total Productive Call</th>
+                    <th style="border-right:3px solid #576966">Count</th>
+
+                </tr>
+            <tr>
+                <td style="border-right:3px solid #576966 ;text-align: center">Total Call Count</td>
+                <td style="border-right:3px solid #576966 ;text-align: center;"><b>{{total_productive_calls}}</b></td>
+            </tr>
+                </table>
+            <br>
+            <table style="width: 100%; border:3px solid #576966 ;align-content: center;  background-color:#F4F8FF ;">
+                <tr style="border-bottom:3px solid #CEDAEF ;background-color: #ddedf5">
+                    <th style="border-right:3px solid #576966">Program</th>
+                    <th style="border-right:3px solid #576966"> Count</th>
+
+                </tr>
+
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Relaxo Call Count:</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center"><b>{{total_relaxo_count}}</b></td>
+                </tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">SEEP & Blaupunkt Call Count: </td>
+                    <td style="border-right:3px solid #576966 ;text-align: center"><b>{{seee_blau}}</b></td>
+                </tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Grass & Puma Call Count: </td>
+                    <td style="border-right:3px solid #576966 ;text-align: center"><b>{{grass_puma}}</b></td>
+                </tr>
+                <!--<tr>-->
+                    <!--<td style="border-right:3px solid #576966 ;text-align: center">Engagement Call Count</td>-->
+                    <!--<td style="border-right:3px solid #576966 ;text-align: center"><b>{{engagement}}</b></td>-->
+                <!--</tr>-->
+
+            </table>
+            <br>
+            <table style="width: 100%; border:3px solid #576966 ;align-content: center ; background-color: #F4F8FF;">
+                <tr style="border-bottom:3px solid #CEDAEF ;background-color: #ddedf5">
+                    <th style="border-right:3px solid #576966">1- 30 sec </th>
+                    <th style="border-right:3px solid #576966">31-60 sec</th>
+                    <th style="border-right:3px solid #576966">61-120 sec</th>
+                    <th >Above 2 min</th>
+                </tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center;"><b>{{lss_sec30}}</b></td>
+                    <td style="border-right:3px solid #576966 ;text-align: center"><b>{{sc30_60}}</b></td>
+                    <td style="border-right:3px solid #576966 ;text-align: center"><b>{{mn1_min2}}</b></td>
+                    <td  style="text-align: center"><b>{{abv_min2}}</b></td>
+                </tr>
+            </table>
+            <!--<div class="row">-->
+                <!--<div class="col">1 - 30 sec</div>-->
+                <!--<div class="col">31 - 60 sec</div>-->
+                <!--<div class="col">1 - 2 min</div>-->
+                <!--<div class="col">Above 2 min</div>-->
+
+            <!--</div>-->
+            <!--<div class="row">-->
+                <!--<div class="col"><b>{{lss_sec30}}</b></div>-->
+                <!--<div class="col"><b>{{sc30_60}}</b></div>-->
+                <!--<div class="col"><b>{{mn1_min2}}</b></div>-->
+                <!--<div class="col"><b>{{abv_min2}}</b></div>-->
+
+            <!--</div>-->
+            <br>
+            <div>
+                <label >Time Chart</label>
+            <!--<canvas id="bars" class="chart chart-bar" data="time_data"-->
+                    <!--labels="time" colors="blue"></canvas>-->
+                <canvas id="pie" class="chart chart-pie" data="time_data"
+                        labels="time"></canvas>
+            </div>
+            <table style="width: 100%; border:3px solid #576966 ;align-content: center;  background-color:#F4F8FF ;">
+                <tr style="border-bottom:3px solid #CEDAEF ;background-color: #ddedf5">
+                    <th style="border-right:3px solid #576966">Agent</th>
+                    <th style="border-right:3px solid #576966">Calling For</th>
+                    <th style="border-right:3px solid #576966">Count</th>
+
+                </tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Shashidhar</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Relaxo</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center;"><b>{{shashidhar_count}}</b></td>
+                    </tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Poornima</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Relaxo</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center"><b>{{pornima_count}}</b></td>
+                    </tr>
+                <tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Ziaba</td>
+                <td style="border-right:3px solid #576966 ;text-align: center">Relaxo</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center"><b>{{ziaba_count}}</b></td>
+                </tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Inderjit</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Relaxo</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center"><b>{{inderjit_count}}</b></td>
+                </tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Chethan</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Relaxo</td>
+                    <td  style="text-align: center"><b>{{chethan_count}}</b></td>
+                </tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Kalpa</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Relaxo</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center"><b>{{kapla_count}}</b></td>
+                </tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Vidya</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Relaxo</td>
+                    <td  style="text-align: center"><b>{{vidya_count}}</b></td>
+                </tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Divya</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center">SEEP</td>
+                    <td  style="text-align: center"><b>{{divya_count}}</b></td>
+                </tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Kiran</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center">SEEP</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center;"><b>{{kiran_count}}</b></td>
+                </tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Aditya</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Blaupunkt</td>
+                    <td  style="text-align: center"><b>{{adi_count}}</b></td>
+                </tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Saraswati</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Grass & Puma</td>
+                    <td  style="text-align: center"><b>{{saraswati_count}}</b></td>
+                </tr>
+
+
+
+
+
+
+            </table> <br>
+            <!--<h2><b>Shashidhar Call Count: {{shashidhar_count}}</b> </h2>-->
+            <!--<h2><b>Pornima Call Count: {{pornima_count}}</b> </h2>-->
+            <!--<h2><b>Aditya Call Count: {{aditya_count}}</b> </h2>-->
+            <!--<h2><b>Chethan Call Count: {{chethan_count}}</b> </h2>-->
+            <!--<h2><b>Kiran Call Count: {{kiran_count}}</b> </h2>-->
+            <!--<h2><b>Ziaba Call Count: {{ziaba_count}}</b> </h2>-->
+            <!--<h2><b>Inderjit Call Count: {{inderjit_count}}</b> </h2>-->
+            <!--<h2><b>Saraswati Call Count: {{saraswati_count}}</b> </h2>-->
+
+        </div>
+          <label >Calls Chart</label>
+          <!--<canvas id="bar" class="chart chart-bar" data="datas"-->
+                  <!--labels="labels"></canvas>-->
+          <canvas id="doughnut" class="chart chart-doughnut" data="datas"
+                  labels="labels"></canvas>
+      </div>
+        <div class="item item-divider">Total Productive Time {{titleDate}}</div>
+        <div class="item item-body">
+            <!--<div>-->
+                <!--<h2><b>{{ total_productive_time_hr}} hrs : {{ total_productive_time_min}} min</b>  </h2>-->
+            <!--</div>-->
+            <table style="width: 100%; border:3px solid #576966 ;align-content: center;  background-color:#F4F8FF ;">
+                <tr style="border-bottom:3px solid #CEDAEF ;background-color: #ddedf5">
+                    <th style="border-right:3px solid #576966">Total Productive Calls Time</th>
+                    <th style="border-right:3px solid #576966">Hr : Min</th>
+
+                </tr>
+                <tr>
+                    <td style="border-right:3px solid #576966 ;text-align: center">Total Time</td>
+                    <td style="border-right:3px solid #576966 ;text-align: center;"><b>{{ total_productive_time_hr}} hr : {{ total_productive_time_min}} min</b></b></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--<div class="list card">-->
+      <!--<div class="item item-divider">Total Productive Time {{titleDate}}</div>-->
+      <!--<div class="item item-body">-->
+        <!--<div>-->
+            <!--<h2><b>{{ total_productive_time_hr}} hrs : {{ total_productive_time_min}} min</b>  </h2>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+
+      <div class="list card">
+          <div class="item item-divider">Total Over All Calls Count {{titleDate}}  </div>
+          <div class="item item-body">
+              <!--<div>-->
+                  <!--<h2><b>{{total_calls}}</b> </h2>-->
+
+              <!--</div>-->
+              <table style="width: 100%; border:3px solid #576966 ;align-content: center;  background-color:#F4F8FF ;">
+                  <tr style="border-bottom:3px solid #CEDAEF ;background-color: #ddedf5">
+                      <th style="border-right:3px solid #576966">Total Calls Made on {{titleDate}}</th>
+                      <th style="border-right:3px solid #576966">Count</th>
+
+                  </tr>
+                  <tr>
+                      <td style="border-right:3px solid #576966 ;text-align: center">Total Call Count</td>
+                      <td style="border-right:3px solid #576966 ;text-align: center;"><b>{{total_calls}}</b></td>
+                  </tr>
+              </table>
+          </div>
+          <div class="item item-divider">Total Time {{titleDate}}</div>
+          <div class="item item-body">
+              <!--<div>-->
+                  <!--<h2><b> {{ total_time_hr}} hrs : {{ total_min}} min</b> </h2>-->
+              <!--</div>-->
+              <table style="width: 100%; border:3px solid #576966 ;align-content: center;  background-color:#F4F8FF ;">
+                  <tr style="border-bottom:3px solid #CEDAEF ;background-color: #ddedf5">
+                      <th style="border-right:3px solid #576966">TotalCalls Time</th>
+                      <th style="border-right:3px solid #576966">Hr : Min</th>
+
+                  </tr>
+                  <tr>
+                      <td style="border-right:3px solid #576966 ;text-align: center">Total Time</td>
+                      <td style="border-right:3px solid #576966 ;text-align: center;"><b> {{ total_time_hr}} hrs : {{ total_min}} min</b> </td>
+                  </tr>
+              </table>
+          </div>
+      </div>
+      <!--<div class="list card">-->
+          <!--<div class="item item-divider">Total Time {{titleDate}}</div>-->
+          <!--<div class="item item-body">-->
+              <!--<div>-->
+                  <!--<h2><b> {{ total_time_hr}} hrs : {{ total_min}} min</b> </h2>-->
+              <!--</div>-->
+          <!--</div>-->
+      <!--</div>-->
+
+      <div>
+          <label class="item item-input">
+              <span class="input-label">StartDate</span>
+              <input type="date" ng-model="start_date"  >
+          </label>
+      </div>
+      <br>
+      <div>
+          <label class="item item-input">
+              <span class="input-label">EndDate</span>
+              <input type="date" ng-model="end_date"  >
+          </label>
+      </div>
+      </br>
+ <div  style="text-align: center">
+      <button style="text-align: center" class="button button-calm" ng-click="get_prod_by_date()" >
+          Get Date Wise Report
+      </button>
+ </div>
+
+  </ion-content>
+</ion-view>

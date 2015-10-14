@@ -1,0 +1,44 @@
+<ion-view view-title="Agents">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap"  >
+        <img ng-src="{{chat.face}}">
+          &nbsp;&nbsp; <h2> &nbsp;<b>{{chat.name}}</b></h2>
+          <!--<div >-->
+              <!--<h2> Total Prodctive calls : </h2>-->
+          <!--</div>-->
+          <!--<div >-->
+              <!--<h2> Total Prodctive Time : </h2>-->
+          <!--</div>-->
+
+          &nbsp;&nbsp; <p>&nbsp;{{chat.calling_for}}</p>
+          <div>
+              <label class="item item-input">
+                  <span class="input-label">StartDate</span>
+                  <input type="date" ng-model="start_date"  >
+              </label>
+          </div>
+          </br>
+          <div>
+              <label class="item item-input">
+                  <span class="input-label">EndDate</span>
+                  <input type="date" ng-model="end_date"  >
+              </label>
+          </div>
+          </br>
+          <div ng-controller="ChatsCtrl" >
+              <!--<a  href="#/tab/chats/{{chat.id}}">-->
+              <button class="button button-calm"  ng-click="getdata(chat.id)">
+                  Get Call Details
+              </button>
+              <!--</a>-->
+          </div>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-calm" ng-click="remove(chat)">
+         Performance
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
